@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.min.js"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+		<link rel="stylesheet" href="css/navbar.css" />
+		<script defer src="js/index.js"></script>
+		<link rel="icon" href="img/logo.png" type="image/x-icon" />
+		<title>Desire Foundation</title>
+
+        <style>
+            body {
+                font-family: "Spectral", sans-serif;
+            }
+            .kes-main-body {
+                background-color: #f6f6f7;
+            }
+            .header-image {
+                background-image: url(http://desirefoundation.org/img/kes/kes_header.jpg);
+                height: 35rem;
+                background-size: cover;
+            }
+    
+            .kes-body {
+                margin-top: -125px;
+                background-color: white;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+            .kes-header {
+                text-align: center;
+                font-size: 50px;
+                color: #490d00;
+            }
+            .kes-sub-header {
+                text-align: left;
+                padding-left: 50px;
+                font-size: 30px;
+                color: #490d00;
+                margin-top: 50px;
+            }
+    
+            .kes-sub-mid-header {
+                text-align: center;
+                padding-top: 25px;
+                font-size: 30px;
+                color: #490d00;
+                margin-top: 50px;
+            }
+    
+            .quote_nm {
+                text-align: right;
+                padding-right: 53px;
+                margin-top: -10px;
+                color: darkgrey;
+                font-size: 18px;
+            }
+    
+            .kes-f-para {
+                padding: 25px 50px;
+            }
+            .kes-row {
+                padding: 25px 0px;
+            }
+    
+            .kes-image {
+                padding-right: 50px;
+            }
+    
+            .kes-sub-cont-header {
+                padding-top: 25px;
+            }
+    
+            .kes-s-para {
+                text-align: center;
+                padding-top: 30px;
+            }
+            #kes-gallery-carousel {
+                padding: 0px 50px;
+                margin-top: 50px;
+            }
+            .kes-gal-img {
+                height: 400px;
+                object-fit: cover;
+            }
+    
+            .kes-video-image {
+                padding-left: 50px;
+            }
+    
+            @media screen and (min-width: 64.0625em) {
+                .play:hover::after {
+                    -ms-transform: scale(8);
+                    transform: scale(8);
+                    opacity: 0;
+                }
+            }
+    
+            .play {
+                height: 60px;
+                width: 60px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                border-radius: 100px;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+    
+            @media screen and (min-width: 64.0625em) {
+                .play {
+                    height: 80px;
+                    width: 80px;
+                }
+            }
+    
+            .play:after {
+                content: "";
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                border-radius: 100px;
+                position: absolute;
+                top: 0;
+                left: -5%;
+                z-index: -1;
+                transition: all 0.4s;
+                background: #fff;
+                opacity: 0.8;
+            }
+    
+            .play svg {
+                height: 25px;
+                width: 25px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+    
+            @media screen and (min-width: 64.0625em) {
+                .play svg {
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+    
+            .popup {
+                height: 100vh;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 342565;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+            }
+    
+            .popup.popupOpen {
+                opacity: 1;
+                visibility: visible;
+            }
+    
+            .popup__content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 75%;
+                background-color: #fff;
+                border-radius: 3px;
+                display: -ms-flexbox;
+                display: flex;
+                overflow: hidden;
+                opacity: 0;
+                -ms-transform: translate(-50%, -50%) scale(0);
+                transform: translate(-50%, -50%) scale(0);
+                transition: all 0.5s 0.2s;
+                height: 90%;
+                background: 0 0;
+            }
+            .popup.popupOpen .popup__content {
+                opacity: 1;
+                visibility: visible;
+                -ms-transform: translate(-50%, -50%) scale(1);
+                transform: translate(-50%, -50%) scale(1);
+            }
+            .popup__close:link,
+            .popup__close:visited {
+                position: absolute;
+                top: 2%;
+                right: 4%;
+                font-size: 3rem;
+                text-decoration: none;
+                display: inline-block;
+                transition: all 0.3s;
+                line-height: 1;
+            }
+    
+            @media screen and (max-width: 1024px) {
+                .u-sm-flex-col-reverse {
+                    flex-direction: column-reverse;
+                }
+            }
+    
+            .test_header {
+                color: #333;
+                text-align: center;
+                text-transform: uppercase;
+                font-family: "Roboto", sans-serif;
+                font-weight: bold;
+                position: relative;
+                margin: 30px 0 60px;
+            }
+            .test_header::after {
+                content: "";
+                width: 100px;
+                position: absolute;
+                margin: 0 auto;
+                height: 3px;
+                background: #8fbc54;
+                left: 0;
+                right: 0;
+                bottom: -10px;
+            }
+            .col-center {
+                margin: 0 auto;
+                float: none !important;
+            }
+            .carousel {
+                margin: 50px auto;
+                padding: 0 70px;
+            }
+            .carousel .item {
+                color: #999;
+                font-size: 14px;
+                text-align: center;
+                overflow: hidden;
+                min-height: 290px;
+            }
+            .carousel .item .img-box {
+                width: 135px;
+                height: 135px;
+                margin: 0 auto;
+                padding: 5px;
+                border: 1px solid #ddd;
+                border-radius: 50%;
+            }
+            .carousel .img-box img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                border-radius: 50%;
+            }
+            .carousel .testimonial {
+                padding: 30px 0 10px;
+            }
+            .carousel .overview {
+                font-style: italic;
+            }
+            .carousel .overview b {
+                text-transform: uppercase;
+                color: #7aa641;
+            }
+            .carousel .carousel-control {
+                width: 40px;
+                height: 40px;
+                margin-top: -20px;
+                top: 50%;
+                background: none;
+            }
+            .carousel-control i {
+                font-size: 68px;
+                line-height: 42px;
+                position: absolute;
+                display: inline-block;
+                color: rgba(0, 0, 0, 0.8);
+                text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
+            }
+            .carousel .p-testimonial {
+                bottom: -40px;
+            }
+            .p-testimonial li,
+            .p-testimonial li.active {
+                width: 20px;
+                height: 0px;
+                margin: 1px 3px;
+                border-radius: 50%;
+            }
+            .p-testimonial li {
+                background: #999;
+                border-color: transparent;
+                box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
+            }
+            .p-testimonial li.active {
+                background: #555;
+                box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
+            }
+    
+            .carousel .p-testimonial {
+                bottom: -55px;
+            }
+            .carousel-inner {
+                display: flex;
+            }
+    
+            #myCarousel .carousel-item.active,
+            #myCarousel .carousel-item-next,
+            #myCarousel .carousel-item-prev {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+            #myCarousel .carousel-item {
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transition: transform, opacity 0.6s ease-in-out,
+                    -webkit-transform 0.6s ease-in-out;
+            }
+            .kes-image-mobile {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+        </style>
+
+    </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
